@@ -604,22 +604,22 @@
         });
     </script>
      <script>
-   let visitCount = localStorage.getItem('visitCount');
+        // كود JavaScript لحساب عدد الزوار
+        let totalVisits = localStorage.getItem('totalVisits') || 0;
 
-if (!visitCount) {
-    visitCount = 0;
-}
+        // زيادة العدد فقط عند زيارة الموقع من قبل شخص جديد (عبر الجلسة)
+        if (!sessionStorage.getItem('hasVisited')) {
+            totalVisits++;
+            localStorage.setItem('totalVisits', totalVisits);
+            sessionStorage.setItem('hasVisited', 'true'); // تعيين أن المستخدم زار الموقع
+        }
 
-visitCount++;
-
-localStorage.setItem('visitCount', visitCount);
-
-document.addEventListener('DOMContentLoaded', function() {
-    const visitCounterElement = document.getElementById('visit-counter');
-    if (visitCounterElement) {
-        visitCounterElement.textContent = `عدد الزوار: ${visitCount}`;
-    }
-});
-</script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const visitCounterElement = document.getElementById('visit-counter');
+            if (visitCounterElement) {
+                visitCounterElement.textContent = `عدد الزوار: ${totalVisits}`;
+            }
+        });
+    </script>
 </body>
 </html>
