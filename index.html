@@ -481,9 +481,7 @@
         </div>
     </section>
 
-      <div id="visit-counter" class="text-center text-gray-800 mt-4">
-            <span class="text-xl font-bold">عدد الزوار: 0</span>
-        </div>
+ 
 
    
     <!-- Footer -->
@@ -508,17 +506,23 @@
                     </ul>
                 </div>
                 
-                <div>
-                    <h3 class="text-lg font-bold mb-4">ساعات العمل</h3>
-                    <div class="text-gray-300 space-y-2">
-                        <p>السبت - الخميس: 9:00 ص - 9:00 م</p>
-                        <p>الجمعة: 4:00 م - 9:00 م</p>
-                    </div>
-                </div>
+      <div class="bg-gray-800 text-white p-6 rounded-xl shadow-md w-full max-w-sm">
+    <h3 class="text-xl font-semibold border-b border-gray-600 pb-2 mb-4">🕒 ساعات العمل</h3>
+    <div class="text-gray-300 space-y-2 leading-relaxed">
+        <p><span class="font-medium text-white">السبت:</span> 9:00 ص - 9:00 م</p>
+        <p><span class="font-medium text-white">الأحد:</span> 9:00 ص - 9:00 م</p>
+        <p><span class="font-medium text-white">الاثنين:</span> 9:00 ص - 9:00 م</p>
+        <p><span class="font-medium text-white">الثلاثاء:</span> 9:00 ص - 9:00 م</p>
+        <p><span class="font-medium text-white">الأربعاء:</span> 9:00 ص - 9:00 م</p>
+        <p><span class="font-medium text-white">الخميس:</span> 9:00 ص - 9:00 م</p>
+        <p><span class="font-medium text-white">الجمعة:</span> 4:00 م - 9:00 م</p>
+    </div>
+</div>
+
             </div>
             
             <div class="border-t border-gray-700 mt-8 pt-8 text-center">
-                <p class="text-gray-300">&copy; 2025  عيادة الدكتور علاء ياسين معوضه. جميع الحقوق محفوظة.</p>
+                <p class="text-gray-300">&copy;   عيادة الدكتور علاء ياسين معوضه. جميع الحقوق محفوظة.</p>
             </div>
         </div>
     </footer>
@@ -603,23 +607,6 @@
             observer.observe(el);
         });
     </script>
-     <script>
-        // كود JavaScript لحساب عدد الزوار
-        let totalVisits = localStorage.getItem('totalVisits') || 0;
-
-        // زيادة العدد فقط عند زيارة الموقع من قبل شخص جديد (عبر الجلسة)
-        if (!sessionStorage.getItem('hasVisited')) {
-            totalVisits++;
-            localStorage.setItem('totalVisits', totalVisits);
-            sessionStorage.setItem('hasVisited', 'true'); // تعيين أن المستخدم زار الموقع
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const visitCounterElement = document.getElementById('visit-counter');
-            if (visitCounterElement) {
-                visitCounterElement.textContent = `عدد الزوار: ${totalVisits}`;
-            }
-        });
-    </script>
+    
 </body>
 </html>
