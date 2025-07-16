@@ -480,9 +480,12 @@
             </div>
         </div>
     </section>
-    <div id="visit-counter" class="text-center text-gray-800 dark:text-white mt-4">
-        <span class="text-xl font-bold">عدد زوار الموقع: 0</span>
-    </div>
+
+      <div id="visit-counter" class="text-center text-gray-800 mt-4">
+            <span class="text-xl font-bold">عدد الزوار: 0</span>
+        </div>
+
+   
     <!-- Footer -->
     <footer class="bg-gray-800 dark:bg-black text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -600,28 +603,23 @@
             observer.observe(el);
         });
     </script>
-       <script>
-    // الحصول على عدد الزيارات من localStorage
-    let visitCount = localStorage.getItem('visitCount');
+     <script>
+   let visitCount = localStorage.getItem('visitCount');
 
-    // إذا لم يكن هناك عدد زيارات موجود، قم ببدء العد من 0
-    if (!visitCount) {
-        visitCount = 22;
+if (!visitCount) {
+    visitCount = 0;
+}
+
+visitCount++;
+
+localStorage.setItem('visitCount', visitCount);
+
+document.addEventListener('DOMContentLoaded', function() {
+    const visitCounterElement = document.getElementById('visit-counter');
+    if (visitCounterElement) {
+        visitCounterElement.textContent = `عدد الزوار: ${visitCount}`;
     }
-
-   
-    visitCount++;
-
- 
-    localStorage.setItem('visitCount', visitCount);
-
- 
-    document.addEventListener('DOMContentLoaded', function() {
-        const visitCounterElement = document.getElementById('visit-counter');
-        if (visitCounterElement) {
-            visitCounterElement.textContent = `عدد زوار الموقع: ${visitCount}`;
-        }
-    });
+});
 </script>
 </body>
 </html>
